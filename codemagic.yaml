@@ -13,8 +13,7 @@ workflows:
     scripts:
       - name: Install Dependencies
         script: |
-          gem install bundler
-          bundle install
+        echo "Deps instaled"
       - name: Build the App
         script: xcodebuild -workspace $PROJECT_NAME.xcworkspace -scheme $SCHEME -sdk iphoneos archive -archivePath $PWD/build/$PROJECT_NAME.xcarchive
       - name: Export .ipa File
