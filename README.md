@@ -1,7 +1,3 @@
-Based on the provided code, the **Howl** app appears to be a conversational AI interface that uses a CoreML model to generate responses. Here's a description of what the app does:
-
----
-
 # Howl
 
 **Howl** is an iOS application that allows users to interact with an AI assistant through a simple chat interface. The app uses a CoreML model to generate responses to user input. Here's how it works:
