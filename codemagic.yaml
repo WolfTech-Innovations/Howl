@@ -47,7 +47,7 @@ workflows:
       - name: Build the App
         script: |
           echo "Building the app..."
-          xcodebuild -project Howl.xcodeproj -scheme Howl -configuration Release archive -archivePath $PWD/build/Howl.xcarchive
+          xcodebuild -project Howl.xcodeproj -scheme Howl -configuration Release archive -archivePath $PWD/build/Howl.xcarchive  -allowProvisioningUpdates
 
       - name: Export .ipa File
         script: |
