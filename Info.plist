@@ -6,6 +6,8 @@
     <string>development</string> <!-- Use 'ad-hoc' or 'app-store' for other methods -->
     <key>compileBitcode</key>
     <false/>
+    <key>CFBundleIdentifier</key>
+    <string>com.WolfTech-Innovations.howl</string>
     <key>destination</key>
     <string>export</string>
     <key>provisioningProfiles</key>
