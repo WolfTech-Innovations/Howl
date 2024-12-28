@@ -4,6 +4,23 @@
     classes = {};
     objectVersion = 50;
     objects = {
+        /* Begin PBXBuildFile section */
+        /* End PBXBuildFile section */
+
+        /* Begin PBXFileReference section */
+        1D60588D0D05DD3D006BFB54 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+        /* End PBXFileReference section */
+
+        /* Begin PBXGroup section */
+        1D6058890D05DD3D006BFB54 = {
+            isa = PBXGroup;
+            children = (
+                1D60588D0D05DD3D006BFB54 /* main.swift */,
+            );
+            sourceTree = "<group>";
+        };
+        /* End PBXGroup section */
+
         /* Begin PBXProject section */
         1D6058900D05DD3D006BFB54 /* Project object */ = {
             isa = PBXProject;
@@ -42,6 +59,52 @@
             productType = "com.apple.product-type.application";
         };
         /* End PBXNativeTarget section */
+
+        /* Begin XCBuildConfiguration section */
+        1D6058940D05DD3E006BFB54 /* Debug */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                GCC_PREPROCESSOR_DEFINITIONS = (
+                    "DEBUG=1",
+                    "$(inherited)",
+                );
+                INFOPLIST_FILE = Info.plist;
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                SWIFT_VERSION = 5.0;
+            };
+            name = Debug;
+        };
+        1D6058950D05DD3E006BFB54 /* Release */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                INFOPLIST_FILE = Info.plist;
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                SWIFT_VERSION = 5.0;
+            };
+            name = Release;
+        };
+        /* End XCBuildConfiguration section */
+
+        /* Begin XCConfigurationList section */
+        1D6058910D05DD3E006BFB54 /* Build configuration list for PBXProject "Howl" */ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (
+                1D6058940D05DD3E006BFB54 /* Debug */,
+                1D6058950D05DD3E006BFB54 /* Release */,
+            );
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Release;
+        };
+        1D60589B0D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Howl" */ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (
+                1D6058940D05DD3E006BFB54 /* Debug */,
+                1D6058950D05DD3E006BFB54 /* Release */,
+            );
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Release;
+        };
+        /* End XCConfigurationList section */
     };
     rootObject = 1D6058900D05DD3D006BFB54 /* Project object */;
 }
