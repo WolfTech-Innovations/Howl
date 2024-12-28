@@ -1,0 +1,25 @@
+workflows:
+  ios-build:
+    name: iOS Build
+    environment:
+      vars:
+        # Set any environment variables here
+        PROJECT_NAME: "Howl" # Replace with your app's name
+      xcode: latest
+    triggering:
+      events:
+        - push
+        - pull_request
+    scripts:
+      - name: Install Dependencies
+        script: |
+          gem install bundler
+          bundle install
+      - name: Build the App
+        script: xcodebuild -workspace $PROJECT_NAME.xcworkspace -scheme $SCHEME -sdk iphoneos archive -archivePath $PWD/build/$PROJECT_NAME.xcarchive
+      - name: Export .ipa File
+        script: |
+          xcodebuild -exportArchive -archivePath $PWD/build/$PROJECT_NAME.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath $PWD/build
+    artifacts:
+      - build/**/*.ipa
+      - build/**/*.dSYM.zip
