@@ -3,17 +3,14 @@
 <plist version="1.0">
 <dict>
     <key>method</key>
-    <string>development</string>
-    <key>teamID</key>
-    <string>5493875037</string>
+    <string>debugging</string> <!-- Or 'ad-hoc', 'app-store', etc. -->
     <key>compileBitcode</key>
     <false/>
     <key>destination</key>
     <string>export</string>
     <key>provisioningProfiles</key>
     <dict>
-        <key>com.WolfTech-Innovations.howl</key>
-        <string>Howl</string>
+        <!-- Remove provisioning profiles to skip signing -->
     </dict>
 </dict>
 </plist>
