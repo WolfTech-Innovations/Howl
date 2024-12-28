@@ -1,0 +1,47 @@
+// !$*UTF8*$!
+{
+    archiveVersion = 1;
+    classes = {};
+    objectVersion = 50;
+    objects = {
+        /* Begin PBXProject section */
+        1D6058900D05DD3D006BFB54 /* Project object */ = {
+            isa = PBXProject;
+            attributes = {
+                LastUpgradeCheck = 9999;
+                TargetAttributes = {};
+            };
+            buildConfigurationList = 1D6058910D05DD3E006BFB54 /* Build configuration list for PBXProject "Howl" */;
+            compatibilityVersion = "Xcode 3.2";
+            developmentRegion = en;
+            hasScannedForEncodings = 0;
+            knownRegions = (
+                en,
+            );
+            mainGroup = 1D6058890D05DD3D006BFB54;
+            projectDirPath = "";
+            projectRoot = "";
+            targets = (
+                1D60589A0D05DD3E006BFB54 /* Howl */,
+            );
+        };
+        /* End PBXProject section */
+
+        /* Begin PBXNativeTarget section */
+        1D60589A0D05DD3E006BFB54 /* Howl */ = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = 1D60589B0D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Howl" */;
+            buildPhases = (
+            );
+            buildRules = (
+            );
+            dependencies = (
+            );
+            name = Howl;
+            productName = Howl;
+            productType = "com.apple.product-type.application";
+        };
+        /* End PBXNativeTarget section */
+    };
+    rootObject = 1D6058900D05DD3D006BFB54 /* Project object */;
+}
