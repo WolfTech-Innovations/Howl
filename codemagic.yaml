@@ -15,8 +15,8 @@ workflows:
         default: "Howl"  # Your app name is Howl
 
       SCHEME:
-        description: "HowlScheme"
-        default: "HowlScheme"  # Replace with your scheme name
+        description: "Howl"
+        default: "Howl"  # Replace with your scheme name
 
     environment:
       flutter: stable  # Remove if not using Flutter
