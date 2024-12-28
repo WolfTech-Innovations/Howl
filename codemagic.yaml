@@ -46,7 +46,7 @@ workflows:
       - name: Build the App
         script: |
           echo "Building the app..."
-          xcodebuild -project $PROJECT_NAME.xcodeproj -scheme $SCHEME
+          xcodebuild -project $PROJECT_NAME.xcodeproj -scheme $SCHEME -configuration archive -archivePath $PWD/build/$PROJECT_NAME.xcarchive
 
       - name: Export .ipa File
         script: |
