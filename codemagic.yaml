@@ -49,12 +49,6 @@ workflows:
           echo "Building the app..."
           xcodebuild -project Howl.xcodeproj -scheme Howl -configuration Release archive -archivePath $PWD/build/Howl.xcarchive -allowProvisioningUpdates
 
-      - name: Export .xcarchive
-        script: |
-          echo "Exporting .xcarchive..."
-          # You can skip the export to IPA, just preserve the .xcarchive
-          cp -R $PWD/build/Howl.xcarchive $PWD/build/
-
     artifacts:
       - build/Howl.xcarchive  # Save the xcarchive as an artifact
 
