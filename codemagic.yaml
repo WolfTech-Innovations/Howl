@@ -1,27 +1,66 @@
 workflows:
   ios-build:
-    name: iOS Build
+    name: iOS Build Workflow
+
+    labels:
+      - QA
+      - ${TENANT_NAME}
+
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+
+    inputs:
+      PROJECT_NAME:
+        description: "Name of your app"
+        default: "Howl"  # Your app name is Howl
+
+      SCHEME:
+        description: "Scheme name"
+        default: "HowlScheme"  # Replace with your scheme name
+
     environment:
-      vars:
-        PROJECT_NAME: "Howl"               # Replace with your app's name
-        SCHEME: "HowlScheme"               # Add your scheme name (or set as environment variable)
+      flutter: stable  # Remove if not using Flutter
       xcode: latest
+
+    cache:
+      cache_paths:
+        - ~/.pub-cache  # Add other cache paths if needed
+
     triggering:
       events:
         - push
         - pull_request
+
+      branch_patterns:
+        - pattern: '*'  # Include all branches
+          include: true
+          source: true
+
+      cancel_previous_builds: false
+
     scripts:
       - name: Install Dependencies
         script: |
-          echo "Complete"  # You can install dependencies here if necessary, like CocoaPods or Carthage
+          echo "Complete"  # You can install dependencies here if needed, like CocoaPods or Carthage
+
       - name: Build the App
         script: |
           echo "Building the app..."
-          xcodebuild -workspace $PROJECT_NAME.xcworkspace -scheme $SCHEME -sdk iphoneos -configuration Release archive -archivePath $PWD/build/$PROJECT_NAME.xcarchive
+          xcodebuild -project $PROJECT_NAME.xcodeproj -scheme $SCHEME -sdk iphoneos -configuration Release archive -archivePath $PWD/build/$PROJECT_NAME.xcarchive
+
       - name: Export .ipa File
         script: |
           echo "Exporting .ipa file..."
           xcodebuild -exportArchive -archivePath $PWD/build/$PROJECT_NAME.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath $PWD/build
+
     artifacts:
       - build/**/*.ipa
       - build/**/*.dSYM.zip
+
+    publishing:
+      email:
+        recipients:
+          - spoinkosgithub@gmail.com  # Public email address
+
+      scripts:
+        - echo 'Post-publish script'  # You can add a post-publish step here
