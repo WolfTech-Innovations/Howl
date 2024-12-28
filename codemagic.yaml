@@ -4,7 +4,6 @@ workflows:
 
     labels:
       - QA
-      # Removed the TENANT_NAME reference
 
     instance_type: mac_mini_m2
     max_build_duration: 60
@@ -12,19 +11,19 @@ workflows:
     inputs:
       PROJECT_NAME:
         description: "Howl"
-        default: "Howl"  # Your app name is Howl
+        default: "Howl"
 
       SCHEME:
         description: "Howl"
-        default: "Howl"  # Replace with your scheme name
+        default: "Howl"
 
     environment:
-      flutter: stable  # Remove if not using Flutter
+      flutter: stable  # Remove if you're not using Flutter
       xcode: latest
 
     cache:
       cache_paths:
-        - ~/.pub-cache  # Add other cache paths if needed
+        - ~/.pub-cache  # If using Flutter, otherwise remove
 
     triggering:
       events:
@@ -41,13 +40,14 @@ workflows:
     scripts:
       - name: Install Dependencies
         script: |
-          echo "Complete"  # You can install dependencies here if needed, like CocoaPods or Carthage
+          echo "Installing dependencies..."
+          # Uncomment the next line if using CocoaPods for dependency management
+          # pod install
 
       - name: Build the App
         script: |
           echo "Building the app..."
-          xcodebuild -project Howl.xcodeproj -scheme Howl -configuration archive -archivePath $PWD/build/Howl.xcarchive
-          xcodebuild -exportArchive -archivePath $PWD/build/$PROJECT_NAME.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath $PWD/build
+          xcodebuild -project Howl.xcodeproj -scheme Howl -configuration Release archive -archivePath $PWD/build/Howl.xcarchive
 
       - name: Export .ipa File
         script: |
@@ -61,7 +61,7 @@ workflows:
     publishing:
       email:
         recipients:
-          - spoinkosgithub@gmail.com  # Public email address
+          - spoinkosgithub@gmail.com
 
       scripts:
-        - echo 'Post-publish script'  # You can add a post-publish step here
+        - echo 'Post-publish script'
