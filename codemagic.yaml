@@ -53,10 +53,11 @@ workflows:
           mkdir $PWD/Payload
           mv $PWD/files $PWD/Payload
           zip -r $PWD/Howl.ipa $PWD/Payload 
+          ls -lh
 
 
     artifacts:
-      - $PWD/Howl.ipa  # Save the xcarchive as an artifact
+      - Howl.ipa
 
     publishing:
       email:
