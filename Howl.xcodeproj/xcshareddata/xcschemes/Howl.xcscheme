@@ -1,62 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "9999"
-   version = "1.3">
-   <BuildAction parallelizeBuildables = "YES" buildImplicitDependencies = "YES">
+   LastUpgradeVersion="1460"
+   version="1.3">
+   <BuildAction
+      parallelizeBuildables="YES"
+      buildImplicitDependencies="YES">
       <BuildActionEntries>
-         <BuildActionEntry buildForTesting = "YES" buildForRunning = "YES" buildForProfiling = "YES" buildForArchiving = "YES" buildForAnalyzing = "YES">
+         <BuildActionEntry
+            buildForTesting="YES"
+            buildForRunning="YES"
+            buildForProfiling="YES"
+            buildForArchiving="YES"
+            buildForAnalyzing="YES">
             <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1D60589A0D05DD3E006BFB54"
-               BuildableName = "Howl.app"
-               BlueprintName = "Howl"
-               ReferencedContainer = "container:Howl.xcodeproj">
+               BuildableIdentifier="primary"
+               BlueprintIdentifier="<TARGET_IDENTIFIER>"
+               BuildableName="Howl.app"
+               BlueprintName="Howl"
+               ReferencedContainer="container:Howl.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug"
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      buildConfiguration="Release"
+      selectedDebuggerIdentifier="Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier="Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv="YES"
+      codeCoverageEnabled="NO"
+      onlyGenerateCoverageForSpecifiedTargets="NO">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier="primary"
+            BlueprintIdentifier="<TARGET_IDENTIFIER>"
+            BuildableName="Howl.app"
+            BlueprintName="Howl"
+            ReferencedContainer="container:Howl.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      launchStyle = "0"
-      useCustomWorkingDirectory = "NO"
-      ignoresPersistentStateOnLaunch = "NO"
-      debugDocumentVersioning = "YES"
-      allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      buildConfiguration="Release"
+      selectedDebuggerIdentifier="Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier="Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle="0"
+      useCustomWorkingDirectory="NO"
+      ignoresPersistentStateOnLaunch="NO"
+      debugDocumentVersioning="YES"
+      debugServiceExtension="internal"
+      allowLocationSimulation="YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode="0">
          <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1D60589A0D05DD3E006BFB54"
-            BuildableName = "Howl.app"
-            BlueprintName = "Howl"
-            ReferencedContainer = "container:Howl.xcodeproj">
+            BuildableIdentifier="primary"
+            BlueprintIdentifier="<TARGET_IDENTIFIER>"
+            BuildableName="Howl.app"
+            BlueprintName="Howl"
+            ReferencedContainer="container:Howl.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Release"
-      shouldUseLaunchSchemeArgsEnv = "YES">
-      <BuildableProductRunnable>
+      buildConfiguration="Release"
+      shouldUseLaunchSchemeArgsEnv="YES"
+      savedToolIdentifier=""
+      useCustomWorkingDirectory="NO"
+      debugDocumentVersioning="YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode="0">
          <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1D60589A0D05DD3E006BFB54"
-            BuildableName = "Howl.app"
-            BlueprintName = "Howl"
-            ReferencedContainer = "container:Howl.xcodeproj">
+            BuildableIdentifier="primary"
+            BlueprintIdentifier="<TARGET_IDENTIFIER>"
+            BuildableName="Howl.app"
+            BlueprintName="Howl"
+            ReferencedContainer="container:Howl.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
-   <AnalyzeAction buildConfiguration = "Debug">
+   <AnalyzeAction
+      buildConfiguration="Release">
    </AnalyzeAction>
-   <ArchiveAction buildConfiguration = "Release">
+   <ArchiveAction
+      buildConfiguration="Release"
+      revealArchiveInOrganizer="YES">
    </ArchiveAction>
 </Scheme>
