@@ -9,12 +9,7 @@ workflows:
       - name: Build the App
         script: |
           echo "Archiving the app..."
-          xcodebuild -project Howl.xcodeproj \
-                     -scheme Howl \
-                     -configuration Release \
-                     -archivePath $CM_BUILD_DIR/Howl.xcarchive \
-                     archive \
-                     -allowProvisioningUpdates
+          xcodebuild -project Howl.xcodeproj -scheme Howl -configuration Release ARCHS="x86_64 arm64" VALID_ARCHS="x86_64 arm64" archive -archivePath $PWD/build/Howl.xcarchive
 
       - name: Export IPA
         script: |
