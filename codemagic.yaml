@@ -6,15 +6,10 @@ workflows:
       xcode: latest  # Ensure you're using the latest version of Xcode
 
     scripts:
-      - name: Install Dependencies
-        script: |
-          echo "Installing dependencies..."
-          pod install || echo "No Podfile found, skipping CocoaPods installation."
-
       - name: Build the App
         script: |
           echo "Archiving the app..."
-          xcodebuild -workspace Howl.xcworkspace \
+          xcodebuild -project Howl.xcodeproj \
                      -scheme Howl \
                      -configuration Release \
                      -archivePath $CM_BUILD_DIR/Howl.xcarchive \
