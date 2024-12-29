@@ -1,29 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion="1460"
-   version="1.3">
-   <BuildAction
-      parallelizeBuildables="YES"
-      buildImplicitDependencies="YES">
+   LastUpgradeVersion = "9999"
+   version = "1.3">
+   <BuildAction parallelizeBuildables = "YES" buildImplicitDependencies = "YES">
       <BuildActionEntries>
-         <BuildActionEntry
-            buildForTesting="YES"
-            buildForRunning="YES"
-            buildForProfiling="YES"
-            buildForArchiving="YES"
-            buildForAnalyzing="YES">
+         <BuildActionEntry buildForTesting = "YES" buildForRunning = "YES" buildForProfiling = "YES" buildForArchiving = "YES" buildForAnalyzing = "YES">
             <BuildableReference
-               BuildableIdentifier="primary"
-               BlueprintIdentifier="<TARGET_IDENTIFIER>"
-               BuildableName="Howl.app"
-               BlueprintName="Howl"
-               ReferencedContainer="container:Howl.xcodeproj">
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1D60589A0D05DD3E006BFB54"
+               BuildableName = "Howl.app"
+               BlueprintName = "Howl"
+               ReferencedContainer = "container:Howl.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
+
+   <TestAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <Testables>
+      </Testables>
+   </TestAction>
+
+   <LaunchAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1D60589A0D05DD3E006BFB54"
+            BuildableName = "Howl.app"
+            BlueprintName = "Howl"
+            ReferencedContainer = "container:Howl.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </LaunchAction>
+
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1D60589A0D05DD3E006BFB54"
+            BuildableName = "Howl.app"
+            BlueprintName = "Howl"
+            ReferencedContainer = "container:Howl.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+
+   <AnalyzeAction buildConfiguration = "Debug">
+   </AnalyzeAction>
+
    <ArchiveAction
-      buildConfiguration="Release"
-      revealArchiveInOrganizer="YES">
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+      <!-- Code Signing Configuration -->
+      <Signing>
+         <!-- Use automatic signing if you don't want to manually specify certs/profiles -->
+         <CodeSigningIdentity>iPhone Distribution</CodeSigningIdentity>
+         <ProvisioningProfile>Null</ProvisioningProfile>
+         <TeamIdentifier>Null</TeamIdentifier>
+         <ProvisioningStyle>Automatic</ProvisioningStyle>
+      </Signing>
    </ArchiveAction>
 </Scheme>
