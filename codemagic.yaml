@@ -48,6 +48,7 @@ workflows:
           xcodebuild -project Howl.xcodeproj -scheme Howl -configuration Release archive -archivePath $PWD/build/Howl.xcarchive -allowProvisioningUpdates
       - name: Export IPA
         script: |
+          mkdir $PWD/files
           cp -r $PWD/build/Howl.xcarchive/* $PWD/files
           mkdir $PWD/files/Payload
           mv $PWD/files $PWD/files/Payload
