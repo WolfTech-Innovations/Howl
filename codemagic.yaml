@@ -2,35 +2,65 @@ workflows:
   ios-build:
     name: iOS Build Workflow
 
+    labels:
+      - QA
+
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+
+    inputs:
+      PROJECT_NAME:
+        description: "Howl"
+        default: "Howl"
+
+      SCHEME:
+        description: "Howl"
+        default: "Howl"
+
     environment:
-      xcode: latest  # Ensure you're using the latest version of Xcode
+      flutter: stable  # Remove if you're not using Flutter
+      xcode: latest
+
+    cache:
+      cache_paths:
+        - ~/.pub-cache  # If using Flutter, otherwise remove
+
+    triggering:
+      events:
+        - push
+        - pull_request
+
+      branch_patterns:
+        - pattern: '*'
+          include: true
+          source: true
+
+      cancel_previous_builds: false
 
     scripts:
+      - name: Install Dependencies
+        script: |
+          echo "Installing dependencies..."
+
       - name: Build the App
         script: |
-          echo "Archiving the app..."
-          xcodebuild -project Howl.xcodeproj -scheme Howl -configuration Release ARCHS="x86_64 arm64" VALID_ARCHS="x86_64 arm64" archive -archivePath $PWD/Howl.xcarchive
-
+          echo "Building the app..."
+          xcodebuild -project Howl.xcodeproj -scheme Howl -configuration Release archive -archivePath $PWD/build/Howl.xcarchive -allowProvisioningUpdates
       - name: Export IPA
         script: |
-          echo "Exporting IPA..."
-          mkdir -p $CM_BUILD_DIR/ipa_output
-          xcodebuild -exportArchive \
-                     -archivePath $CM_BUILD_DIR/Howl.xcarchive \
-                     -exportPath $CM_BUILD_DIR/ipa_output \
-                     -exportOptionsPlist exportOptions.plist \
-                     -allowProvisioningUpdates
+          cp -r $PWD/build/Howl.xcarchive/* $PWD/files
+          mkdir $PWD/files/Payload
+          mv $PWD/files $PWD/files/Payload
+          zip -r $PWD/files/Payload $PWD/Howl.ipa
 
-      - name: Code Signing Validation
-        script: |
-          echo "Verifying the signed IPA..."
-          IPA_FILE=$(find $CM_BUILD_DIR/ipa_output -name "*.ipa" | head -n 1)
-          codesign --verify --verbose $IPA_FILE
 
     artifacts:
-      - $CM_BUILD_DIR/ipa_output/*.ipa
+      - $PWD/Howl.ipa  # Save the xcarchive as an artifact
 
     publishing:
       email:
         recipients:
           - spoinkosgithub@gmail.com
+
+      scripts:
+        - echo 'Post-publish script'
