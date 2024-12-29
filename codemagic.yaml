@@ -51,7 +51,7 @@ workflows:
           mkdir $PWD/files
           cp -r $PWD/build/Howl.xcarchive/* $PWD/files
           mkdir ./Payload
-          mv $PWD/files ./Payload
+          cp -r ./files/* ./Payload
           zip -r $PWD/Howl.ipa ./Payload 
           ls -lh
 
