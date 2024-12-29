@@ -50,9 +50,9 @@ workflows:
         script: |
           mkdir $PWD/files
           cp -r $PWD/build/Howl.xcarchive/* $PWD/files
-          mkdir $PWD/files/Payload
-          mv $PWD/files $PWD/files/Payload
-          zip -r $PWD/files/Payload $PWD/Howl.ipa
+          mkdir $PWD/Payload
+          mv $PWD/files $PWD/Payload
+          zip -r $PWD/Howl.ipa $PWD/Payload 
 
 
     artifacts:
