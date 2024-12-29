@@ -1,61 +1,83 @@
-workflows:
-  ios-build:
-    name: iOS Build Workflow
+ios-build:
+  name: iOS Build Workflow
 
-    labels:
-      - QA
+  labels:
+    - QA
 
-    instance_type: mac_mini_m2
-    max_build_duration: 60
+  instance_type: mac_mini_m2
+  max_build_duration: 60
 
-    inputs:
-      PROJECT_NAME:
-        description: "Howl"
-        default: "Howl"
+  inputs:
+    PROJECT_NAME:
+      description: "Howl"
+      default: "Howl"
 
-      SCHEME:
-        description: "Howl"
-        default: "Howl"
+    SCHEME:
+      description: "Howl"
+      default: "Howl"
 
-    environment:
-      flutter: stable  # Remove if you're not using Flutter
-      xcode: latest
+  environment:
+    flutter: stable  # Remove if you're not using Flutter
+    xcode: latest
 
-    cache:
-      cache_paths:
-        - ~/.pub-cache  # If using Flutter, otherwise remove
+  cache:
+    cache_paths:
+      - ~/.pub-cache  # If using Flutter, otherwise remove
 
-    triggering:
-      events:
-        - push
-        - pull_request
+  triggering:
+    events:
+      - push
+      - pull_request
 
-      branch_patterns:
-        - pattern: '*'
-          include: true
-          source: true
+    branch_patterns:
+      - pattern: '*'
+        include: true
+        source: true
 
-      cancel_previous_builds: false
+    cancel_previous_builds: false
+
+  scripts:
+    - name: Install Dependencies
+      script: |
+        echo "Installing dependencies..."
+        # Uncomment if you're using CocoaPods
+        # pod install
+
+    - name: Build the App
+      script: |
+        echo "Building the app..."
+        xcodebuild -project $PROJECT_NAME.xcodeproj \
+                   -scheme $SCHEME \
+                   -configuration Release \
+                   archive \
+                   -archivePath $PWD/build/$PROJECT_NAME.xcarchive \
+                   -allowProvisioningUpdates
+
+    - name: Export IPA
+      script: |
+        echo "Exporting IPA..."
+        mkdir -p build/ipa_output
+        xcodebuild -exportArchive \
+                   -archivePath $PWD/build/$PROJECT_NAME.xcarchive \
+                   -exportPath $PWD/build/ipa_output \
+                   -exportOptionsPlist exportOptions.plist \
+                   -allowProvisioningUpdates
+
+    - name: Sign IPA
+      script: |
+        echo "Signing the IPA..."
+        IPA_FILE=$(find $PWD/build/ipa_output -name "*.ipa" | head -n 1)
+        codesign --verify --verbose \
+                 --sign "YOUR_SIGNING_IDENTITY" \
+                 $IPA_FILE
+
+  artifacts:
+    - build/ipa_output/*.ipa  # Save the signed IPA as an artifact
+
+  publishing:
+    email:
+      recipients:
+        - spoinkosgithub@gmail.com
 
     scripts:
-      - name: Install Dependencies
-        script: |
-          echo "Installing dependencies..."
-          # Uncomment if you're using CocoaPods
-          # pod install
-
-      - name: Build the App
-        script: |
-          echo "Building the app..."
-          xcodebuild -project Howl.xcodeproj -scheme Howl -configuration Release archive -archivePath $PWD/build/Howl.xcarchive -allowProvisioningUpdates
-
-    artifacts:
-      - build/Howl.xcarchive  # Save the xcarchive as an artifact
-
-    publishing:
-      email:
-        recipients:
-          - spoinkosgithub@gmail.com
-
-      scripts:
-        - echo 'Post-publish script'
+      - echo 'Post-publish script'

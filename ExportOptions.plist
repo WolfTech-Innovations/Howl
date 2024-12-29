@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>method</key>
-    <string>debugging</string> <!-- Or 'ad-hoc', 'app-store', etc. -->
+    <string>app-store</string> <!-- Or 'ad-hoc', 'app-store', etc. -->
     <key>compileBitcode</key>
     <false/>
     <key>destination</key>
